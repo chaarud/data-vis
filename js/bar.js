@@ -52,7 +52,7 @@ d3.csv(
 
 function drawChart(picked, raw) {
   let data = raw.filter(countryData => countryData.Country == picked);
-  let foo = Object.entries(data);
+  let foo = Object.entries(data[0]);
   console.log(foo);
   
   d3.select("#barchart").select("svg").remove();

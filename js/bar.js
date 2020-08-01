@@ -41,4 +41,6 @@ d3.csv(
     .text(function(countryName) { return countryName; });
 
   var countryInput = d3.select("#country-picker").property("value");
+  
+  return 42;
 })

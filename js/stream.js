@@ -71,7 +71,7 @@ let myChart = d3
       .domain(keys)
       .range(d3.schemeTableau10); // TODO better interpolations?
 
-    const svg = d3.select("#myplot").append("svg")
+    const svg = d3.select("#streamgraph").append("svg")
         .attr("viewBox", [0, 0, width, height]);
 
     svg.append("g")

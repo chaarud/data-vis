@@ -17,17 +17,18 @@ let myChart = d3
     var result = new Object();
     var countries = new Array();
 
+    let baseYear = 1990;
     let is = [...Array(40).keys()];
-    is.forEach(i => result[i] = { year: i + 1980 });
+    is.forEach(i => result[i] = { year: i + baseYear });
 
     raw.forEach(function(dataRow){
       let country = dataRow.Country;
 
       Object.keys(dataRow).forEach(function(year){
         let val = dataRow[year];
-        if (result.hasOwnProperty(year - 1980)) {
+        if (result.hasOwnProperty(year - baseYear)) {
           if (!isNaN(val)) {
-            result[year - 1980][country] = val;
+            result[year - baseYear][country] = val;
           }
         }
       });

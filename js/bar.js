@@ -64,10 +64,16 @@ function drawChart(picked, raw) {
   
   let x = d3.scaleBand().range(0, width).padding(0.2);
   let y = d3.scaleLinear().range([height, 0]);
+
+  svg.append("g").call(d3.axisBottom(x));
+  svg.append("g").call(d3.axisLeft(y));
   
-  svg.enter()
+  svg.append("g")
+    .selectAll("rect")
+    .data(data)
+    .enter()
     .append("rect")
-    .attr("x", function(d, i) { return x(d.year); })
-    .attr("y", function(d, i) { return y(44); })
-    .attr("height", function(d, i) { return y(44); })
+      .attr("x", function(d, i) { return x(d.year); })
+      .attr("y", function(d, i) { return y(44); })
+      .attr("height", function(d, i) { return y(44); })
 }

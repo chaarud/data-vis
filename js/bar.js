@@ -72,7 +72,9 @@ function drawChart(picked, raw) {
   svg.append("g").call(d3.axisLeft(y));
   
   svg.append("g")
+    .selectAll("rect")
     .data(data)
+    .enter()
     .append("rect")
       .attr("x", function(d, i) { return x(d[0]); })
       .attr("y", function(d, i) { return y(d[1]); })

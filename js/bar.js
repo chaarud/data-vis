@@ -53,7 +53,6 @@ d3.csv(
 function drawChart(picked, raw) {
   let countryObj = raw.filter(countryData => countryData.Country == picked);
   let rawCountryData = Object.entries(countryObj[0]);
-  console.log(rawCountryData);
   let data = rawCountryData.filter(dataPoint => !isNaN(dataPoint[1]));
   console.log(data);
   
@@ -67,15 +66,13 @@ function drawChart(picked, raw) {
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
   
   let x = d3.scaleLinear().domain([1949, 2019]).range([0, width]);
-  let y = d3.scaleLinear().range([height, 0]);
+  let y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
 
   svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
   svg.append("g").call(d3.axisLeft(y));
   
   svg.append("g")
-    .selectAll("rect")
     .data(data)
-    .enter()
     .append("rect")
       .attr("x", function(d, i) { return x(d[0]); })
       .attr("y", function(d, i) { return y(d[1]); })

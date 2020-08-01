@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-
+  <title>Global Defense Spending</title>
 
 <body>
 
   <div id="myplot">  </div>
   
 <script>
-console.log("here I am now what");
-let foo = d3.csv(
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMHM-rI4V3j2d3Uqeg9qza2d0pBnyEW5jc6o19lxP82XFJG9dDFzPq5yFXafZdLoz79MjUsq1M4mTv/pub?gid=0&single=true&output=csv'
-).then(function(data){return data;}).then(function(raw) {
+let myChart = d3
+  .csv(
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMHM-rI4V3j2d3Uqeg9qza2d0pBnyEW5jc6o19lxP82XFJG9dDFzPq5yFXafZdLoz79MjUsq1M4mTv/pub?gid=0&single=true&output=csv'
+  )
+  .then(function(data) { return data; })
+  .then(function(raw) {
     var result = new Object();
     var countries = new Array();
 
@@ -33,7 +35,7 @@ let foo = d3.csv(
 
     let data = Object.values(result)
 
-    let keys = ["USA", "Canada", "China", "Japan", "India", "Germany"];
+    let keys = ["USA", "Russia", "Saudi Arabia", "France", "UK", "Korea, South", "China", "Japan", "India", "Germany", "Brazil", "Italy", "Australia", "Canada", "Israel"];
 
     let margin = ({top: 0, right: 20, bottom: 30, left: 10});
 

@@ -10,7 +10,7 @@ d3.csv(
   var result = new Object();
   var countries = new Array();
 
-  let baseYear = 1995;
+  let baseYear = 1949;
   let numYears = 2020 - baseYear;
   let is = [...Array(numYears).keys()];
   is.forEach(i => result[i] = { year: i + baseYear });
@@ -42,5 +42,14 @@ d3.csv(
 
   var countryInput = d3.select("#country-picker").property("value");
   
+  d3.select("#country-picker").on("change", function() {
+    var picked = d3.select("#country-picker").property("value");
+    drawChart(picked)
+  });
+  
   return 42;
-})
+});
+
+function drawChart(picked) {
+  d3.select("#
+}

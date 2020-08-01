@@ -44,14 +44,17 @@ d3.csv(
   
   d3.select("#country-picker").on("change", function() {
     var picked = d3.select("#country-picker").property("value");
-    drawChart(picked)
+    drawChart(picked, raw)
   });
   
   return 42;
 });
 
-function drawChart(picked) {
+function drawChart(picked, raw) {
+  let data = raw.filter(countryData => countryData.Country == picked)
+  
   d3.select("#barchart").select("svg").remove();
+  
   let svg = d3.select("#barchart")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -62,7 +65,9 @@ function drawChart(picked) {
   let x = d3.scaleBand().range(0, width).padding(0.2);
   let y = d3.scaleLinear().range([height, 0]);
   
-  svg.enter().append("rect")
-  .attr("x", function(d, i) { return x(d.year); })
-  .attr("y", function(d, i) { return y(
+  svg.enter()
+    .append("rect")
+    .attr("x", function(d, i) { return x(d.year); })
+    .attr("y", function(d, i) { return y(44); })
+    .attr("height", function(d, i) { return y(44); })
 }

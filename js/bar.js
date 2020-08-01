@@ -32,6 +32,8 @@ function barChart() {
     let data = Object.values(result);
     let countryList = Object.keys(data[data.length - 1]);
     
+    console.log(countryList);
+    
     d3.select("#country-picker")
       .selectAll("option")
       .data(countryList)

@@ -51,9 +51,11 @@ d3.csv(
 });
 
 function drawChart(picked, raw) {
-  let data = raw.filter(countryData => countryData.Country == picked);
-  let foo = Object.entries(data[0]);
-  console.log(foo);
+  let countryObj = raw.filter(countryData => countryData.Country == picked);
+  let rawCountryData = Object.entries(countryObj[0]);
+  console.log(rawCountryData);
+  let data = rawCountryData.filter(dataPoint => !isNaN(dataPoint[1]));
+  console.log(data);
   
   d3.select("#barchart").select("svg").remove();
 
@@ -75,8 +77,8 @@ function drawChart(picked, raw) {
     .data(data)
     .enter()
     .append("rect")
-      .attr("x", function(d, i) { return x(i + 1949); })
-      .attr("y", function(d, i) { return y(d[2]); })
-      .attr("height", function(d, i) { return height - (y(d[2])); })
+      .attr("x", function(d, i) { return x(d[0]); })
+      .attr("y", function(d, i) { return y(d[1]); })
+      .attr("height", function(d, i) { return height - (y(d[1])); })
       .attr("fill", "red")
 }

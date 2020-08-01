@@ -53,8 +53,8 @@ d3.csv(
 function drawChart(picked, raw) {
   let data = raw.filter(countryData => countryData.Country == picked)
   
-//   d3.select("#barchart").select("svg").remove();
-//   d3.select("#barchart").append("svg");
+  d3.select("#barchart").select("svg").remove();
+
   let svg = d3.select("#barchart")
     .append("svg")
     .attr("width", width + margin.left + margin.right)

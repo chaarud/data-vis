@@ -10,9 +10,9 @@ Hello there
   
 <script>
 console.log("here I am now what");
-let raw = d3.csv(
+let foo = d3.csv(
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMHM-rI4V3j2d3Uqeg9qza2d0pBnyEW5jc6o19lxP82XFJG9dDFzPq5yFXafZdLoz79MjUsq1M4mTv/pub?gid=0&single=true&output=csv',
-  function(data) {
+  function(raw) {
     var result = new Object();
     var countries = new Array();
 

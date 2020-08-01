@@ -76,8 +76,8 @@ function drawChart(picked, raw) {
     .data(data)
     .enter()
     .append("rect")
-      .attr("x", function(d, i) { return x(d[0]); })
-      .attr("y", function(d, i) { return y(d[1]); })
-      .attr("height", function(d, i) { return height - (y(d[1])); })
+      .attr("x", function(d, i) { return x(1992); })
+      .attr("y", function(d, i) { return y(33); })
+      .attr("height", function(d, i) { return height - (y(33)); })
       .attr("fill", "red")
 }

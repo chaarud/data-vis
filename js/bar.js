@@ -40,6 +40,8 @@ function barChart() {
       .enter()
       .append("option")
       .text(function(countryName) { return countryName; });
+    
+    var countryInput = d3.select("#country-picker").property("value");
   }
 }
 

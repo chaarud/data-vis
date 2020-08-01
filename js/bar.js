@@ -51,5 +51,18 @@ d3.csv(
 });
 
 function drawChart(picked) {
-  d3.select("#
+  d3.select("#barchart").select("svg").remove();
+  let svg = d3.select("#barchart")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
+  
+  let x = d3.scaleBand().range(0, width).padding(0.2);
+  let y = d3.scaleLinear().range([height, 0]);
+  
+  svg.enter().append("rect")
+  .attr("x", function(d, i) { return x(d.year); })
+  .attr("y", function(d, i) { return y(
 }

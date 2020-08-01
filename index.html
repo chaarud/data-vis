@@ -6,28 +6,27 @@
 async function init() {
   console.log("here I am now what");
   let raw = d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vTMHM-rI4V3j2d3Uqeg9qza2d0pBnyEW5jc6o19lxP82XFJG9dDFzPq5yFXafZdLoz79MjUsq1M4mTv/pub?gid=0&single=true&output=csv');
-  let data = {
-    var result = new Object();
-    var countries = new Array();
+  
+  var result = new Object();
+  var countries = new Array();
 
-    let is = [...Array(40).keys()];
-    is.forEach(i => result[i] = { year: i + 1980 });
+  let is = [...Array(40).keys()];
+  is.forEach(i => result[i] = { year: i + 1980 });
 
-    raw.forEach(function(dataRow){
-      let country = dataRow.Country;
+  raw.forEach(function(dataRow){
+    let country = dataRow.Country;
 
-      Object.keys(dataRow).forEach(function(year){
-        let val = dataRow[year];
-        if (result.hasOwnProperty(year - 1980)) {
-          if (!isNaN(val)) {
-            result[year - 1980][country] = val;
-          }
+    Object.keys(dataRow).forEach(function(year){
+      let val = dataRow[year];
+      if (result.hasOwnProperty(year - 1980)) {
+        if (!isNaN(val)) {
+          result[year - 1980][country] = val;
         }
-      });
+      }
     });
+  });
 
-    return Object.values(result)
-  };
+  let data = Object.values(result)
   
   let keys = ["USA", "Canada", "China", "Japan", "India", "Germany"];
   
@@ -72,24 +71,22 @@ async function init() {
     .domain(keys)
     .range(d3.schemeTableau10); // TODO better interpolations?
   
-  let chart = {  
-    const svg = d3.select("myplot").append("svg")
-        .attr("viewBox", [0, 0, width, height]);
+  const svg = d3.select("myplot").append("svg")
+      .attr("viewBox", [0, 0, width, height]);
 
-    svg.append("g")
-      .selectAll("path")
-      .data(series)
-      .join("path")
-        .attr("fill", ({key}) => color(key))
-        .attr("d", area)
-      .append("title")
-        .text(({key}) => key);
+  svg.append("g")
+    .selectAll("path")
+    .data(series)
+    .join("path")
+      .attr("fill", ({key}) => color(key))
+      .attr("d", area)
+    .append("title")
+      .text(({key}) => key);
 
-    svg.append("g")
-        .call(xAxis);
+  svg.append("g")
+      .call(xAxis);
 
-    return svg.node();
-  };
+  let chart = svg.node();
 }
 </script>
 

@@ -73,7 +73,7 @@ async function init() {
     .range(d3.schemeTableau10); // TODO better interpolations?
   
   let chart = {  
-    const svg = d3.create("svg")
+    const svg = d3.select("myplot").append("svg")
         .attr("viewBox", [0, 0, width, height]);
 
     svg.append("g")
@@ -96,6 +96,7 @@ async function init() {
 <body onload='init()'>
 
 Hello there
-
+<div id="myplot">  </div>
+  
 </body>
 </html>

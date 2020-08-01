@@ -19,7 +19,8 @@ let myChart = d3
     var countries = new Array();
 
     let baseYear = 1995;
-    let is = [...Array(2020 - baseYear).keys()];
+    let numYears = 2020 - baseYear;
+    let is = [...Array(numYears).keys()];
     is.forEach(i => result[i] = { year: i + baseYear });
 
     raw.forEach(function(dataRow){
@@ -45,12 +46,12 @@ let myChart = d3
     let width = 1000;
 
     let x = d3.scaleUtc()
-      .domain([1980, 2019])
+      .domain([baseYear, 2019])
       .range([margin.left, width - margin.right]);
 
     let xAxis = g => g
       .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickValues)
+      .call(d3.axisBottom(x).tickSizeOuter(0).ticks(numYears))
       .call(g => g.select(".domain").remove());
 
     let series = d3.stack()

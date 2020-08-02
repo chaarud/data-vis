@@ -105,5 +105,22 @@ d3.csv('data/spending.csv')
       .attr("font-size", "20px")
       .style("text-anchor", "middle")
       .text("Spending (in Millions of 2018 USD)")
+    
+    svg.append("line")
+    .attr("x1", 700)
+    .attr("y1", 50)
+    .attr("x2", 400)
+    .attr("y2", 150)
+    .attr("stroke-width", 3)
+    .attr("stroke", "red")
+    
+    svg.append("text")
+    .attr("x", 400)
+    .attr("y", 150)
+    .attr("font-family", "sans-serif")
+    .attr("font-size", 16)
+    .style("fill", "darkred")
+    .attr("text-anchor", "start")
+    .html("The US not only has the world's highest military spending, it is also in the upper tier for spending per capita.")
   });
 });

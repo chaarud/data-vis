@@ -13,9 +13,11 @@ d3.csv('data/spending.csv')
     countriesToSort.push([dataRow.Country, dataRow['2018']]);
   });
   countriesToSort.sort(function(a, b) {
-    if (parseFloat(a[1]) < parseFloat(b[1])) {
-      return 1;
-    }
+    let aParsed = 0;
+    let bParsed = 0;
+    if (!isNaN(parseFloat(a[1]))) { aParsed = parseFloat(a[1]); }
+    if (!isNaN(parseFloat(b[1]))) { bParsed = parseFloat(b[1]); }
+    if (aParsed < bParsed) { return 1; }
     return -1;
   });
   console.log(countriesToSort);

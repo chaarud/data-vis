@@ -2,6 +2,9 @@ let margin = ({top: 30, right: 50, bottom: 70, left: 70});
 let height = 500;
 let width = 800;
 
+////////////////////////////////
+//   Data loading and cleanup
+////////////////////////////////
 let myChart = d3
   .csv('data/spending.csv')
   .then(function(data) { return data; })
@@ -30,7 +33,10 @@ let myChart = d3
     let data = Object.values(result)
 
     let keys = ["USA", "Russia", "Saudi Arabia", "France", "UK", "Korea, South", "China", "Japan", "India", "Germany", "Brazil", "Italy", "Australia", "Canada", "Israel"];
-
+    
+    /////////////////////////////
+    //   Setup Chart Elements 
+    /////////////////////////////
     let x = d3.scaleLinear()
       .domain([baseYear, 2019])
       .range([0, width]);
@@ -62,6 +68,9 @@ let myChart = d3
       .domain(keys)
       .range(d3.schemeTableau10); // TODO better interpolations?
 
+    ///////////////////////////
+    //   Drawing the Chart 
+    ///////////////////////////
     const svg = d3.select("#streamgraph")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -83,6 +92,9 @@ let myChart = d3
       .call(d3.axisBottom(x).tickSizeOuter(0).ticks(numYears).tickFormat(d3.format("d")))
       .call(g => g.select(".domain").remove());
     
+    ///////////////
+    //   Tooltip 
+    ///////////////
     var tooltip = d3.select("#streamgraph")
       .append("div")
       .style("opacity", 0)
@@ -101,7 +113,10 @@ let myChart = d3
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY) + "px")
       });
-      
+    
+    ////////////////////
+    //   Axis Labels 
+    ////////////////////
     svg.append("text")
       .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
       .style("text-anchor", "middle")

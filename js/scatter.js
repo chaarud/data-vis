@@ -68,7 +68,7 @@ d3.csv('data/spending.csv')
       .append("circle")
       .attr("cx", function(d,i) { return x(d[2]); })
       .attr("cy", function(d,i) { return y(d[1]); })
-      .attr("r", function(d) { return 2000 * d[1] / d[2]; })
+      .attr("r", function(d) { return 10000 * d[1] / d[2]; })
       .style("fill", "#2048e6")
     
     var tooltip = d3.select("#scatterplot")

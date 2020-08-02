@@ -65,7 +65,7 @@ function drawChart(picked, raw) {
     .append("g")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
   
-  let x = d3.scaleLinear().domain([1949, 2019]).range([0, width]);
+  let x = d3.scaleBand().domain([1949, 2019]).range([0, width]);
   let y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
 
   console.log(x(1992));

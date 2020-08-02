@@ -29,8 +29,7 @@ let myChart = d3
 
     let keys = ["USA", "Russia", "Saudi Arabia", "France", "UK", "Korea, South", "China", "Japan", "India", "Germany", "Brazil", "Italy", "Australia", "Canada", "Israel"];
 
-    let margin = ({top: 0, right: 20, bottom: 30, left: 10});
-
+    let margin = ({top: 30, right: 50, bottom: 70, left: 70});
     let height = 500 - margin.top - margin.bottom;
     let width = 1000 - margin.left - margin.right;
 
@@ -110,5 +109,19 @@ let myChart = d3
           .html("<p><br>Country: " + d['key'] + "</br></p>")
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY) + "px");
+      
+    svg.append("text")
+      .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
+      .style("text-anchor", "middle")
+      .attr("font-size", "20px")
+      .text("Year")
+
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", -margin.right)
+      .attr("font-size", "20px")
+      .style("text-anchor", "middle")
+      .text("Cumulative Relative Spending")
     });
 });

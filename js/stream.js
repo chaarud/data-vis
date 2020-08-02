@@ -69,9 +69,13 @@ let myChart = d3
       .domain(keys)
       .range(d3.schemeTableau10); // TODO better interpolations?
 
-    const svg = d3.select("#streamgraph").append("svg")
-        .attr("viewBox", [0, 0, width, height]);
-
+    const svg = d3.select("#streamgraph")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
+    
     svg.append("g")
       .selectAll("path")
       .data(series)

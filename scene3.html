@@ -5,9 +5,25 @@
 
 <body>
   <h1>Country-Specific Defense Spending</h1>
+  
+  <p>
+    The final scene is an interactive one - the user gets to choose which country they want to view military spending data for. All data is 
+    given in 2018 US dollars. It's worth noting that while the oldest data stretches back to 1949, many countries have spotty data records 
+    for some or all of the years between 1949 and now. For example, a country may have kept their military spending a secret, or may not have 
+    existed independently for some or all of the years between 1949 and now. The USSR is an example of this - data on its expenditures is 
+    sparse because it was secret prior to 1988, and the country did not exist after 1991.
+  </p>
+  
+  <p>
+    Hovering over a bar will provide a tooltip indicating the year and exact military expenditure value for that year.
+  </p>
+  
   <label for="country-picker">Pick a Country</label>
+  
   <select id="country-picker" name="country-picker">Generate</select>
+  
   <div id="barchart"></div>
+  
   <div id="goto_scene_1">
     <a href="index.html" class="button">Start Over</a>
   </div>

@@ -119,6 +119,6 @@ d3.csv('data/spending.csv')
       .attr("font-size", 16)
       .style("fill", "darkred")
       .attr("text-anchor", "end")
-      .html("The US not only has the world's highest military spending,<br>it is also in the upper tier for spending per capita.")
+      .html("<p>The US not only has the world's highest military spending,<br>it is also in the upper tier for spending per capita.")
   });
 });

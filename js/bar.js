@@ -56,7 +56,7 @@ function drawChart(picked, raw) {
   rawCountryData.forEach(function(dataPoint, i){
     if (isNaN(dataPoint[1])) { rawCountryData[i][1] = 0; }
   });
-  let data = rawCountryData;
+  let data = rawCountryData.pop();
   console.log(data);
   
   d3.select("#barchart").select("svg").remove();

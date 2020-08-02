@@ -9,7 +9,7 @@ d3.csv(
 .then(function(raw) {
   var countryList = new Array();
   raw.forEach(function(dataRow){
-    countries.push(dataRow.Country);
+    countryList.push(dataRow.Country);
   });
 
   d3.select("#country-picker")

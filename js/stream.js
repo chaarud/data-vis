@@ -31,8 +31,8 @@ let myChart = d3
 
     let margin = ({top: 0, right: 20, bottom: 30, left: 10});
 
-    let height = 500;
-    let width = 1000;
+    let height = 500 - margin.top - margin.bottom;
+    let width = 1000 - margin.left - margin.right;
 
     let x = d3.scaleUtc()
       .domain([baseYear, 2019])

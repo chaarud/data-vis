@@ -1,3 +1,7 @@
+let margin = ({top: 30, right: 50, bottom: 70, left: 70});
+let height = 500;
+let width = 800;
+
 let myChart = d3
   .csv(
     'data/spending.csv'
@@ -28,10 +32,6 @@ let myChart = d3
     let data = Object.values(result)
 
     let keys = ["USA", "Russia", "Saudi Arabia", "France", "UK", "Korea, South", "China", "Japan", "India", "Germany", "Brazil", "Italy", "Australia", "Canada", "Israel"];
-
-    let margin = ({top: 30, right: 50, bottom: 70, left: 70});
-    let height = 500 - margin.top - margin.bottom;
-    let width = 800 - margin.left - margin.right;
 
     let x = d3.scaleLinear()
       .domain([baseYear, 2019])

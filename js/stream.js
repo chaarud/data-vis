@@ -33,7 +33,7 @@ let myChart = d3
 
     let x = d3.scaleLinear()
       .domain([baseYear, 2019])
-      .range([margin.left, width - margin.right]);
+      .range([0, width]);
 
     let xAxis = g => g
       .attr("transform", `translate(0,${height - margin.bottom})`)
@@ -56,7 +56,7 @@ let myChart = d3
 
     let y = d3.scaleLinear()
       .domain([d3.min(series, d => d3.min(d, d => d[0])), d3.max(series, d => d3.max(d, d => d[1]))])
-      .range([height - margin.bottom, margin.top]);
+      .range([height, 0]);
 
     let area = d3.area()
       .x(d => x(d.data.year))

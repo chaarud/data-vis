@@ -38,7 +38,8 @@ let myChart = d3
     let xAxis = g => g
       .attr("transform", `translate(0,${height - margin.bottom})`)
       .call(d3.axisBottom(x).tickSizeOuter(0).ticks(numYears).tickFormat(d3.format("d")))
-      .call(g => g.select(".domain").remove());
+//       .call(g => g.select(".domain").remove())
+    ;
 
     let series = d3.stack()
       .keys(keys)

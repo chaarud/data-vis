@@ -77,7 +77,7 @@ d3.csv('data/spending.csv')
       .append("div")
       .attr("class", "tooltip");
     
-    svg.selectAll("path")
+    svg.selectAll("circle")
       .on("mouseover", function() {
         tooltip.style("visibility", "visible")
         tooptip.style("opacity", 1)

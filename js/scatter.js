@@ -89,8 +89,8 @@ d3.csv('data/spending.csv')
       .on("mousemove", function(d) {
         tooltip
           .html("<p><br>Country: " + d[0] + "</br><br>Population: " + d[2] + "</br><br>Spending: " + d[1] + "</br></p>")
-          .style("left", (event.pageX) + "px")
-          .style("top", (event.pageY) + "px");
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY) + "px");
         console.log(event.pageX);
         console.log(d3.select(this).attr("cx"));
         console.log(event.pageY);

@@ -84,7 +84,10 @@ let myChart = d3
         .text(({key}) => key);
 
     svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
+    
+    svg.append("g").call(d3.axisLeft(y))
         
     var tooltip = d3.select("#streamgraph")
       .append("div")

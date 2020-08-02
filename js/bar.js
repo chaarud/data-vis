@@ -78,7 +78,7 @@ function drawChart(picked, raw) {
       .attr("y", function(d, i) { return y(d[1]); })
       .attr("height", function(d, i) { return height - y(d[1]); })
       .attr("width", x.bandwidth())
-      .attr("fill", "red")
+      .attr("fill", "#8c0010")
  
     ///////////////
     //   Tooltip 

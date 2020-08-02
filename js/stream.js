@@ -31,7 +31,7 @@ let myChart = d3
 
     let margin = ({top: 30, right: 50, bottom: 70, left: 70});
     let height = 500 - margin.top - margin.bottom;
-    let width = 1000 - margin.left - margin.right;
+    let width = 800 - margin.left - margin.right;
 
     let x = d3.scaleLinear()
       .domain([baseYear, 2019])

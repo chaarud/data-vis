@@ -83,5 +83,6 @@ function drawChart(picked, raw) {
       .attr("x", function(d, i) { return 400; })
       .attr("y", function(d, i) { return 200; })
       .attr("height", function(d, i) { return height - 300; })
+      .attr("width", x.bandwidth())
       .attr("fill", "red")
 }

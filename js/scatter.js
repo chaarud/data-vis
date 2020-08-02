@@ -2,9 +2,7 @@
 // let height = 500;
 // let width = 800;
 
-d3.csv(
-  'data/spending.csv'
-)
+d3.csv('data/spending.csv')
 .then(function(data) { return data; })
 .then(function(raw) {
   let spendResult = new Array();
@@ -22,9 +20,7 @@ d3.csv(
   
   console.log(spendResult);
   
-  d3.csv(
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vTPAbYPBeTuhnQwUxyEkoF604ie5tD6x2TBu5bp2jzMa_u8gqKT9BAEQkfzXa9wqXorMO1Wgq34YLYY/pub?output=csv'
-  )
+  d3.csv('data/pop.csv')
   .then(function(data) { return data; })
   .then(function(rawPop) {
     

@@ -61,7 +61,8 @@ function drawChart(picked, raw) {
   
   let numYears = 71;
   let is = [...Array(numYears).keys()];
-  
+  let years = is.map(i => i + 1949);
+      
   d3.select("#barchart").select("svg").remove();
 
   let svg = d3.select("#barchart")
@@ -73,7 +74,7 @@ function drawChart(picked, raw) {
   
   let xmin = d3.min(data, function(d) { return d[0]; });
   let xmax = d3.max(data, function(d) { return d[0]; });
-  let x = d3.scaleBand().domain(is).range([0, width]).padding(0.2);
+  let x = d3.scaleBand().domain(years).range([0, width]).padding(0.2);
   let ymax = d3.max(data, function(d) { return d[1]; });
   let y = d3.scaleLinear().domain([0, ymax]).range([height, 0]);
   

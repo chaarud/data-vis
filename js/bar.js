@@ -12,7 +12,7 @@ d3.csv(
     countryList.push(dataRow.Country);
   });
   
-  console.log(countryList);
+  //console.log(countryList);
 
   d3.select("#country-picker")
     .selectAll("option")
@@ -38,7 +38,7 @@ function drawChart(picked, raw) {
   });
   rawCountryData.pop();
   let data = rawCountryData;
-  console.log(data);
+  //console.log(data);
   
   let numYears = 71;
   let is = [...Array(numYears).keys()];

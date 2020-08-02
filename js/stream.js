@@ -94,7 +94,7 @@ let myChart = d3
 
     let chart = svg.node();
     
-    var tooltip = d3.select("#scatterplot")
+    var tooltip = d3.select("#streamgraph")
       .append("div")
       .attr("class", "tooltip");
     

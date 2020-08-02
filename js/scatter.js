@@ -91,6 +91,8 @@ d3.csv('data/spending.csv')
           .html("<p><br>Country: " + d[0] + "</br><br>Population: " + d[2] + "</br><br>Spending: " + d[1] + "</br></p>")
           .style("left", (event.pageX) + "px")
           .style("top", (event.pageY) + "px");
+        console.log(event.pageX);
+        console.log(d3.select(this).attr("cx"));
     });
 
   });

@@ -3,9 +3,7 @@ let height = 500;
 let width = 800;
 
 let myChart = d3
-  .csv(
-    'data/spending.csv'
-  )
+  .csv('data/spending.csv')
   .then(function(data) { return data; })
   .then(function(raw) {
     var result = new Object();
@@ -128,5 +126,5 @@ let myChart = d3
       .attr("font-size", "20px")
       .style("text-anchor", "middle")
       .text("Cumulative Relative Spending")
-    });
+
 });

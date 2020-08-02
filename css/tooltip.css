@@ -1,7 +1,13 @@
+body, html {
+  background: #d2f0f7;
+  color: #033440;
+  padding: 30px;
+}
+
 .tooltip {
   line-height: 1;
   padding: 5px;
-  background:darkblue;
+  background: gray;
   color: #fff;
   border-radius: 2px;
   font-size: 12px;

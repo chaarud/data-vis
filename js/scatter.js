@@ -93,6 +93,8 @@ d3.csv('data/spending.csv')
           .style("top", (event.pageY) + "px");
         console.log(event.pageX);
         console.log(d3.select(this).attr("cx"));
+        console.log(event.pageY);
+        console.log(d3.select(this).attr("cy"));
     });
 
   });

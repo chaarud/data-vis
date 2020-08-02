@@ -65,8 +65,9 @@ function drawChart(picked, raw) {
     .append("g")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
   
-  let x = d3.scaleBand().domain([1949, 2019]).range([0, width]);
-  let y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+  let x = d3.scaleBand().domain([1949, 2019]).range([0, width]).padding(0.2);
+  let ymax = d3.max(data, function(d) { return d[1]; });
+  let y = d3.scaleLinear().domain([0, ymax]).range([height, 0]);
   
   svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
   svg.append("g").call(d3.axisLeft(y));

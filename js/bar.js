@@ -59,7 +59,7 @@ function drawChart(picked, raw) {
   svg.append("g").call(d3.axisLeft(y));
   
   svg.append("g")
-    .selectAll("asdfasdfasdfasdf")
+    .selectAll("rect")
     .data(data)
     .enter()
     .append("rect")

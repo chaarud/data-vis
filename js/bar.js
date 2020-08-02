@@ -100,5 +100,5 @@ function drawChart(picked, raw) {
     .attr("x", -height / 2)
     .attr("y", -margin.right)
     .attr("font-size", "20px")
-    .text("Spending")
+    .text("Spending (in Millions of 2018 USD)")
 }

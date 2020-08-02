@@ -1,6 +1,6 @@
-let margin = ({top: 30, right: 20, bottom: 50, left: 50});
-let height = 500;
-let width = 800;
+// let margin = ({top: 30, right: 20, bottom: 50, left: 50});
+// let height = 500;
+// let width = 800;
 
 d3.csv(
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMHM-rI4V3j2d3Uqeg9qza2d0pBnyEW5jc6o19lxP82XFJG9dDFzPq5yFXafZdLoz79MjUsq1M4mTv/pub?gid=0&single=true&output=csv'

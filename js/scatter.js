@@ -73,6 +73,7 @@ d3.csv('data/spending.csv')
     
     var tooltip = d3.select("#scatterplot")
       .append("div")
+      .style("opacity", 0)
       .attr("class", "tooltip");
     
     svg.selectAll("circle")

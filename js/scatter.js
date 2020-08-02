@@ -73,5 +73,24 @@ d3.csv('data/spending.csv')
       .attr("cy", function(d,i) { return y(d[1]); })
       .attr("r", 4)
     
+    var tooltip =  d3.select("#winemap")
+      .append("div")
+      .attr("class", "tooltip");
+    
+    svg.selectAll("path")
+      .on("mouseover", function() {
+        tooltip.style("visibility", "visible")
+        tooptip.style("opacity", 1)
+      })
+      .on("mouseout", function() {
+        tooltip.style("visibility", "hidden")
+        tooptip.style("opacity", 0)
+      })
+      .on("mousemove", function(d) {
+        tooltip.html("<p>Country: " + d[0] + "<br>Population: " + d[2] + "<br>Spending: " + d[1])
+        tooltip.style("left", (event.pageX) + "px")
+        tooltip.style("top", (event.pageY) + "px")
+    });
+
   });
 });

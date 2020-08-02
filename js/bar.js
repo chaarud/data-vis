@@ -68,6 +68,10 @@ function drawChart(picked, raw) {
   let x = d3.scaleLinear().domain([1949, 2019]).range([0, width]);
   let y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
 
+  console.log(x(1992));
+  
+  console.log(y(33)); 
+  
   svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
   svg.append("g").call(d3.axisLeft(y));
   

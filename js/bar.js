@@ -11,6 +11,8 @@ d3.csv(
   raw.forEach(function(dataRow){
     countryList.push(dataRow.Country);
   });
+  
+  console.log(countryList);
 
   d3.select("#country-picker")
     .selectAll("option")

@@ -88,4 +88,9 @@ function drawChart(picked, raw) {
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY) + "px");
     });
+  
+  svg.append("text")
+    .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
+    .style("text-anchor", "middle")
+    .text("Year")
 }

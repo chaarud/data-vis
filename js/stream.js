@@ -40,7 +40,7 @@ let myChart = d3
 
     let xAxis = g => g
       .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x).tickSizeOuter(0).ticks(numYears).tickFormat("s"))
+      .call(d3.axisBottom(x).tickSizeOuter(0).ticks(numYears))
       .call(g => g.select(".domain").remove());
 
     let series = d3.stack()
@@ -49,7 +49,6 @@ let myChart = d3
       .order(d3.stackOrderInsideOut)
       (data);
 
-    // todo can this be fixed by passing the right function into stack.values?
     let mutateSeries = series.forEach(function(row){ 
       row.forEach(function(ys){
         if (isNaN(ys[1])) {

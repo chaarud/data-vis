@@ -1,6 +1,6 @@
-// let margin = ({top: 30, right: 20, bottom: 50, left: 50});
-// let height = 500;
-// let width = 800;
+let margin = ({top: 30, right: 20, bottom: 50, left: 50});
+let height = 500;
+let width = 800;
 
 d3.csv('data/spending.csv')
 .then(function(data) { return data; })

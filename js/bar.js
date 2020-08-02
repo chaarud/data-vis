@@ -53,9 +53,10 @@ d3.csv(
 function drawChart(picked, raw) {
   let countryObj = raw.filter(countryData => countryData.Country == picked);
   let rawCountryData = Object.entries(countryObj[0]);
-  let data = rawCountryData.forEach(function(dataPoint, i){
+  rawCountryData.forEach(function(dataPoint, i){
     if (isNaN(dataPoint[1])) { rawCountryData[i][1] = 0; }
   });
+  let data = rawCountryData;
   console.log(data);
   
   d3.select("#barchart").select("svg").remove();

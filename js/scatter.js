@@ -8,14 +8,11 @@ d3.csv('data/spending.csv')
   let spendResult = new Array();
   
   raw.forEach(function(dataRow) {
-    var spend = 0;
-    if (isNaN(dataRow['2018'])) {
-      spend = 0;
-    } else {
-      spend = dataRow['2018'];
+    if (!isNaN(dataRow['2018'])) {
+      let spend = dataRow['2018'];
+      let spendData = [dataRow['Country'], spend];
+      spendResult.push(spendData);
     }
-    let spendData = [dataRow['Country'], spend];
-    spendResult.push(spendData);
   });
   
   console.log(spendResult);

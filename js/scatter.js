@@ -43,7 +43,7 @@ d3.csv('data/spending.csv')
       } else {
         popThing = 0;
       }
-      consolidatedData.push([spendPoint[0], spendPoint[1], popThing);
+      consolidatedData.push([spendPoint[0], spendPoint[1], popThing]);
     });
     
     console.log(consolidatedData);

@@ -21,7 +21,7 @@ d3.csv('data/spending.csv')
     return -1;
   });
 
-  let countryList = new Array();
+  let countryList = ["Choose a Country"];
   countriesToSort.forEach(countryAndRank => countryList.push(countryAndRank[0]));
   
   ////////////////////////////////

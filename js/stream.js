@@ -83,9 +83,7 @@ let myChart = d3
       .data(series)
       .join("path")
         .attr("fill", ({key}) => color(key))
-        .attr("d", area)
-      .append("title")
-        .text(({key}) => key);
+        .attr("d", area);
 
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")

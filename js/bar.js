@@ -55,7 +55,9 @@ function drawChart(picked, raw) {
   let ymax = d3.max(data, function(d) { return parseFloat(d[1]); });
   let y = d3.scaleLinear().domain([0, ymax]).range([height, 0]);
   
-  svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
+  let xticks = [1950,1955,1960,1965,1970,1975,1980,1985,1990,1995,2000,2005,2010,2015];
+  
+  svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x).tickValues(xticks));
   svg.append("g").call(d3.axisLeft(y));
   
   svg.append("g")
@@ -82,7 +84,7 @@ function drawChart(picked, raw) {
       })
       .on("mousemove", function(d) {
         tooltip
-          .html("<p><br>Year: " + d[0] + "</br><br>Spending: " + d[1] + "</br></p>")
+          .html("<p><br>Year: " + d[0] + "</br><br>Spending: $" + d[1] + " million</br></p>")
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY) + "px");
     });

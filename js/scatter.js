@@ -64,5 +64,13 @@ d3.csv('data/spending.csv')
     svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x).tickValues(xticks).tickFormat(d3.format(".2s")));
     svg.append("g").call(d3.axisLeft(y).tickValues(yticks).tickFormat(d3.format(".2s")));
     
+    svg.selectAll("circle")
+    .data(consolidatedData)
+    .enter()
+    .append("circle")
+    .attr("cx", function(d,i) { return x(d[2]); })
+    .attr("cy", function(d,i) { return y(d[1]); })
+    .attr("r", 4)
+    
   });
 });

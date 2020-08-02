@@ -79,22 +79,20 @@ d3.csv('data/spending.csv')
     
     svg.selectAll("circle")
       .on("mouseover", function() {
-        tooltip.style("visibility", "visible");
-        tooltip.style("opacity", 1);
+        tooltip.transition().style("visibility", "visible").style("opacity", 0.9);
       })
       .on("mouseout", function() {
-        tooltip.style("visibility", "hidden");
-        tooltip.style("opacity", 0);
+        tooltip.transition().style("visibility", "hidden").style("opacity", 0);
       })
       .on("mousemove", function(d) {
         tooltip
           .html("<p><br>Country: " + d[0] + "</br><br>Population: " + d[2] + "</br><br>Spending: " + d[1] + "</br></p>")
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY) + "px");
-        console.log(event.pageX);
-        console.log(d3.select(this).attr("cx"));
-        console.log(event.pageY);
-        console.log(d3.select(this).attr("cy"));
+//         console.log(event.pageX);
+//         console.log(d3.select(this).attr("cx"));
+//         console.log(event.pageY);
+//         console.log(d3.select(this).attr("cy"));
     });
 
   });

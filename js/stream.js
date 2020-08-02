@@ -136,15 +136,15 @@ let myChart = d3
     ////////////////////
     svg.append("line")
       .attr("x1", 50)
-      .attr("y1", 375)
+      .attr("y1", 350)
       .attr("x2", 50)
-      .attr("y2", 400)
+      .attr("y2", 420)
       .attr("stroke-width", 3)
       .attr("stroke", "red")
     
     svg.append("text")
       .attr("x", 50)
-      .attr("y", 400)
+      .attr("y", 440)
       .attr("font-family", "sans-serif")
       .attr("font-size", 16)
       .style("fill", "darkred")
@@ -153,7 +153,7 @@ let myChart = d3
     
     svg.append("text")
       .attr("x", 50)
-      .attr("y", 420)
+      .attr("y", 460)
       .attr("font-family", "sans-serif")
       .attr("font-size", 16)
       .style("fill", "darkred")

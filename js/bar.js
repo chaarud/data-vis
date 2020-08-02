@@ -73,6 +73,7 @@ function drawChart(picked, raw) {
   
     var tooltip = d3.select("#barchart")
       .append("div")
+      .style("opacity", 0)
       .attr("class", "tooltip");
     
     svg.selectAll("rect")

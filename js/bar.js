@@ -20,7 +20,7 @@ d3.csv('data/spending.csv')
     if (aParsed < bParsed) { return 1; }
     return -1;
   });
-  console.log(countriesToSort);
+
   let countryList = new Array();
   countriesToSort.forEach(countryAndRank => countryList.push(countryAndRank[0]));
   

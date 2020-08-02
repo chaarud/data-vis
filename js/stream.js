@@ -131,4 +131,33 @@ let myChart = d3
       .style("text-anchor", "middle")
       .text("Relative Spending")
 
+    ////////////////////
+    //   Annotations 
+    ////////////////////
+    svg.append("line")
+      .attr("x1", 50)
+      .attr("y1", 375)
+      .attr("x2", 50)
+      .attr("y2", 400)
+      .attr("stroke-width", 3)
+      .attr("stroke", "red")
+    
+    svg.append("text")
+      .attr("x", 50)
+      .attr("y", 400)
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 16)
+      .style("fill", "darkred")
+      .attr("text-anchor", "start")
+      .html("German spending has remained fairly consistent")
+    
+    svg.append("text")
+      .attr("x", 50)
+      .attr("y", 420)
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 16)
+      .style("fill", "darkred")
+      .attr("text-anchor", "start")
+      .html("over time, even decreasing somewhat lately.")
+
 });

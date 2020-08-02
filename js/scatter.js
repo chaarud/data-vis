@@ -32,8 +32,21 @@ d3.csv('data/spending.csv')
     
     console.log(popResult);
     
-    let consolidatedData = spendResult.forEach(function(spendPoint) {});
+    let consolidatedData = new Array();
     
+    spendResult.forEach(function(spendPoint) {
+      let country = spendPoint[0].toLowerCase();
+      let popAttempt = popResult.filter(thing => thing[0].toLowerCase() == country);
+      var popThing = 0;
+      if (popAttempt.length) {
+        popThing = popAttempt[1];
+      } else {
+        popThing = 0;
+      }
+      consolidatedData.push([spendPoint[0], spendPoint[1], popThing);
+    });
+    
+    console.log(consolidatedData);
     let svg = d3.select("#scatterplot")
       .append("svg")
       .attr("width", width + margin.left + margin.right)

@@ -112,7 +112,8 @@ let myChart = d3
         tooltip
           .html("<p><br>Country: " + d['key'] + "</br></p>")
           .style("left", (d3.event.pageX) + "px")
-          .style("top", (d3.event.pageY) + "px");
+          .style("top", (d3.event.pageY) + "px")
+      });
       
     svg.append("text")
       .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")

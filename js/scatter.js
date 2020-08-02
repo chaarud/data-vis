@@ -47,6 +47,7 @@ d3.csv('data/spending.csv')
     });
     
     console.log(consolidatedData);
+    
     let svg = d3.select("#scatterplot")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -54,5 +55,14 @@ d3.csv('data/spending.csv')
       .append("g")
       .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
+    let x = d3.scaleLog().domain([1, 2000000000]).range([0, width]);
+    let y = d3.scaleLog().domain([0.01, 1000000]).range([height, 0]);
+    
+    let xticks = [1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000];
+    let yticks = [0.01,0.1,1,10,100,1000,10000,100000,1000000];
+    
+    svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x).tickValues(xticks).tickFormat(d3.format(".2s")));
+    svg.append("g").call(d3.axisLeft(y).tickValues(yticks).tickFormat(d3.format(".2s")));
+    
   });
 });

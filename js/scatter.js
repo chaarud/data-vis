@@ -46,7 +46,8 @@ d3.csv('data/spending.csv')
       consolidatedData.push([spendPoint[0], spendPoint[1], popThing]);
     });
     
-    console.log(consolidatedData);
+    var filteredConsolidatedData = consolidatedData.filter(d => !isNaN(d[1]) && !isNaN(d[2]));
+    console.log(filteredConsolidatedData);
     
     let svg = d3.select("#scatterplot")
       .append("svg")
@@ -65,12 +66,12 @@ d3.csv('data/spending.csv')
     svg.append("g").call(d3.axisLeft(y).tickValues(yticks).tickFormat(d3.format(".2s")));
     
     svg.selectAll("circle")
-    .data(consolidatedData)
-    .enter()
-    .append("circle")
-    .attr("cx", function(d,i) { return x(d[2]); })
-    .attr("cy", function(d,i) { return y(d[1]); })
-    .attr("r", 4)
+      .data(filteredConsolidatedData)
+      .enter()
+      .append("circle")
+      .attr("cx", function(d,i) { return x(d[2]); })
+      .attr("cy", function(d,i) { return y(d[1]); })
+      .attr("r", 4)
     
   });
 });

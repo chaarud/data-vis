@@ -32,6 +32,7 @@ d3.csv('data/spending.csv')
     
     console.log(popResult);
     
+    let consolidatedData = spendResult.forEach(function(spendPoint) {});
     
     let svg = d3.select("#scatterplot")
       .append("svg")

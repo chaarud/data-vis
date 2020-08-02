@@ -2,6 +2,9 @@ let margin = ({top: 30, right: 50, bottom: 70, left: 70});
 let height = 500;
 let width = 800;
 
+////////////////////////////////
+//   Data loading and cleanup
+////////////////////////////////
 d3.csv('data/spending.csv')
 .then(function(data) { return data; })
 .then(function(raw) {
@@ -46,6 +49,9 @@ d3.csv('data/spending.csv')
     var filteredConsolidatedData = consolidatedData.filter(d => !isNaN(d[1]) && !isNaN(d[2]));
     console.log(filteredConsolidatedData);
     
+    /////////////////////////////
+    //   Setup Chart Elements 
+    /////////////////////////////
     let svg = d3.select("#scatterplot")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -62,6 +68,9 @@ d3.csv('data/spending.csv')
     svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x).tickValues(xticks).tickFormat(d3.format(".2s")));
     svg.append("g").call(d3.axisLeft(y).tickValues(yticks).tickFormat(d3.format(".2s")));
     
+    ///////////////////////////
+    //   Drawing the Chart 
+    ///////////////////////////
     svg.selectAll("circle")
       .data(filteredConsolidatedData)
       .enter()
@@ -71,6 +80,9 @@ d3.csv('data/spending.csv')
       .attr("r", function(d) { return Math.max(2, Math.log(10000 * d[1] / d[2]) * 5); })
       .style("fill", "#2048e6")
     
+    ///////////////
+    //   Tooltip 
+    ///////////////
     var tooltip = d3.select("#scatterplot")
       .append("div")
       .style("opacity", 0)
@@ -90,6 +102,9 @@ d3.csv('data/spending.csv')
           .style("top", (d3.event.pageY) + "px");
     });
 
+    ////////////////////
+    //   Axis Labels 
+    ////////////////////
     svg.append("text")
       .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
       .style("text-anchor", "middle")
@@ -104,6 +119,9 @@ d3.csv('data/spending.csv')
       .style("text-anchor", "middle")
       .text("Spending (in Millions of 2018 USD)")
     
+    ////////////////////
+    //   Annotations 
+    ////////////////////
     svg.append("line")
       .attr("x1", 670)
       .attr("y1", 20)
@@ -123,7 +141,7 @@ d3.csv('data/spending.csv')
     
     svg.append("text")
       .attr("x", 500)
-      .attr("y", 22)
+      .attr("y", 60)
       .attr("font-family", "sans-serif")
       .attr("font-size", 16)
       .style("fill", "darkred")

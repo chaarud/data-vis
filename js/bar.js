@@ -92,5 +92,6 @@ function drawChart(picked, raw) {
   svg.append("text")
     .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
     .style("text-anchor", "middle")
+    .attr("font-size", "20px")
     .text("Year")
 }

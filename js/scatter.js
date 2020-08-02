@@ -87,9 +87,10 @@ d3.csv('data/spending.csv')
         tooltip.style("opacity", 0);
       })
       .on("mousemove", function(d) {
-        tooltip.html("<p><br>Country: " + d[0] + "</br><br>Population: " + d[2] + "</br><br>Spending: " + d[1] + "</br></p>");
-        tooltip.style("left", (event.pageX) + "px");
-        tooltip.style("top", (event.pageY) + "px");
+        tooltip
+          .html("<p><br>Country: " + d[0] + "</br><br>Population: " + d[2] + "</br><br>Spending: " + d[1] + "</br></p>")
+          .style("left", (event.pageX) + "px")
+          .style("top", (event.pageY) + "px");
     });
 
   });

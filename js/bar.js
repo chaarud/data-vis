@@ -7,31 +7,10 @@ d3.csv(
 )
 .then(function(data) { return data; })
 .then(function(raw) {
-  var result = new Object();
-  var countries = new Array();
-
-  let baseYear = 1949;
-  let numYears = 2020 - baseYear;
-  let is = [...Array(numYears).keys()];
-  is.forEach(i => result[i] = { year: i + baseYear });
-
+  var countryList = new Array();
   raw.forEach(function(dataRow){
-    let country = dataRow.Country;
-
-    Object.keys(dataRow).forEach(function(year){
-      let val = dataRow[year];
-      if (result.hasOwnProperty(year - baseYear)) {
-        if (!isNaN(val)) {
-          result[year - baseYear][country] = val;
-        }
-      }
-    });
+    countries.push(dataRow.Country);
   });
-
-  let data = Object.values(result);
-  let countryList = Object.keys(data[data.length - 1]);
-
-  console.log(countryList);
 
   d3.select("#country-picker")
     .selectAll("option")

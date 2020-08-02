@@ -85,16 +85,7 @@ let myChart = d3
 
     svg.append("g")
       .call(xAxis);
-    
-    svg.append("text")
-      .attr("y", height + 50)
-      .attr("x", width / 2)
-      .attr("font-size", "20px")
-      .attr("text-anchor", "middle")
-      .text("Year");
-
-    let chart = svg.node();
-    
+        
     var tooltip = d3.select("#streamgraph")
       .append("div")
       .attr("class", "tooltip");

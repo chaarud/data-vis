@@ -1,6 +1,6 @@
 let myChart = d3
   .csv(
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMHM-rI4V3j2d3Uqeg9qza2d0pBnyEW5jc6o19lxP82XFJG9dDFzPq5yFXafZdLoz79MjUsq1M4mTv/pub?gid=0&single=true&output=csv'
+    'data/spending.csv'
   )
   .then(function(data) { return data; })
   .then(function(raw) {

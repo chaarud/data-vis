@@ -38,8 +38,8 @@ d3.csv('data/spending.csv')
       let country = spendPoint[0].toLowerCase();
       let popAttempt = popResult.filter(thing => thing[0].toLowerCase() == country);
       var popThing = 0;
-      if (popAttempt.length) {
-        popThing = popAttempt[1];
+      if (popAttempt.length > 0) {
+        popThing = popAttempt[0][1];
       } else {
         popThing = 0;
       }

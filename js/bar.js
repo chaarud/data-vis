@@ -68,4 +68,22 @@ function drawChart(picked, raw) {
       .attr("height", function(d, i) { return height - y(d[1]); })
       .attr("width", x.bandwidth())
       .attr("fill", "red")
+  
+    var tooltip = d3.select("#barchart")
+      .append("div")
+      .attr("class", "tooltip");
+    
+    svg.selectAll("rect")
+      .on("mouseover", function() {
+        tooltip.transition().style("visibility", "visible").style("opacity", 0.9);
+      })
+      .on("mouseout", function() {
+        tooltip.transition().style("visibility", "hidden").style("opacity", 0);
+      })
+      .on("mousemove", function(d) {
+        tooltip
+          .html("<p><br>Year: " + d[0] + "</br><br>Spending: " + d[1] + "</br></p>")
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY) + "px");
+    });
 }

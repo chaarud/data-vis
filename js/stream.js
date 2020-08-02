@@ -85,6 +85,7 @@ let myChart = d3
     
     var tooltip = d3.select("#streamgraph")
       .append("div")
+      .style("opacity", 0)
       .attr("class", "tooltip");
     
     svg.selectAll("path")

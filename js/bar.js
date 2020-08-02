@@ -72,8 +72,6 @@ function drawChart(picked, raw) {
     .append("g")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
   
-  let xmin = d3.min(data, function(d) { return d[0]; });
-  let xmax = d3.max(data, function(d) { return d[0]; });
   let x = d3.scaleBand().domain(years).range([0, width]).padding(0.2);
   let ymax = d3.max(data, function(d) { return d[1]; });
   let y = d3.scaleLinear().domain([0, ymax]).range([height, 0]);

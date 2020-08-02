@@ -73,7 +73,7 @@ d3.csv('data/spending.csv')
       .attr("cy", function(d,i) { return y(d[1]); })
       .attr("r", 4)
     
-    var tooltip =  d3.select("#winemap")
+    var tooltip =  d3.select("#scatterplot")
       .append("div")
       .attr("class", "tooltip");
     

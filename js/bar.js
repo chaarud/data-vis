@@ -10,7 +10,7 @@ d3.csv('data/spending.csv')
 .then(function(raw) {
   let countriesToSort = new Array();
   raw.forEach(function(dataRow){
-    countriesToSort.push([dataRow.Country, dataRow['2018']);
+    countriesToSort.push([dataRow.Country, dataRow['2018']]);
   });
   countriesToSort.sort(function(a, b) {
     if (parseFloat(a[1]) < parseFloat(b[1])) {

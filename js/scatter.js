@@ -68,7 +68,7 @@ d3.csv('data/spending.csv')
       .append("circle")
       .attr("cx", function(d,i) { return x(d[2]); })
       .attr("cy", function(d,i) { return y(d[1]); })
-      .attr("r", 4)
+      .attr("r", function(d) { return 2000 * d[1] / d[2]; })
     
     var tooltip = d3.select("#scatterplot")
       .append("div")
@@ -88,8 +88,6 @@ d3.csv('data/spending.csv')
           .style("top", (d3.event.pageY) + "px");
 //         console.log(event.pageX);
 //         console.log(d3.select(this).attr("cx"));
-//         console.log(event.pageY);
-//         console.log(d3.select(this).attr("cy"));
     });
 
     svg.append("text")

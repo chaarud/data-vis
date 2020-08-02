@@ -95,5 +95,18 @@ d3.csv('data/spending.csv')
 //         console.log(d3.select(this).attr("cy"));
     });
 
+    svg.append("text")
+      .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
+      .style("text-anchor", "middle")
+      .attr("font-size", "20px")
+      .text("Population")
+
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", -margin.right)
+      .attr("font-size", "20px")
+      .style("text-anchor", "middle")
+      .text("Spending (in Millions of 2018 USD)")
   });
 });

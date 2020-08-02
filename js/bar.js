@@ -8,10 +8,19 @@ let width = 800;
 d3.csv('data/spending.csv')
 .then(function(data) { return data; })
 .then(function(raw) {
-  var countryList = new Array();
+  let countriesToSort = new Array();
   raw.forEach(function(dataRow){
-    countryList.push(dataRow.Country);
+    countriesToSort.push([dataRow.Country, dataRow['2018']);
   });
+  countriesToSort.sort(function(a, b) {
+    if (parseFloat(a[1]) < parseFloat(b[1])) {
+      return 1;
+    }
+    return -1;
+  });
+  
+  let countryList = new Array();
+  countriesToSort.forEach(countryAndRank => countryList.push(countryAndRank[0]));
   
   ////////////////////////////////
   //   Populating Input List

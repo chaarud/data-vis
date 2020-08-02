@@ -2,6 +2,9 @@ let margin = ({top: 30, right: 50, bottom: 70, left: 70});
 let height = 500;
 let width = 800;
 
+////////////////////////////////
+//   Data loading and cleanup
+////////////////////////////////
 d3.csv('data/spending.csv')
 .then(function(data) { return data; })
 .then(function(raw) {
@@ -10,8 +13,9 @@ d3.csv('data/spending.csv')
     countryList.push(dataRow.Country);
   });
   
-  //console.log(countryList);
-
+  ////////////////////////////////
+  //   Populating Input List
+  ////////////////////////////////
   d3.select("#country-picker")
     .selectAll("option")
     .data(countryList)
@@ -36,7 +40,6 @@ function drawChart(picked, raw) {
   });
   rawCountryData.pop();
   let data = rawCountryData;
-  //console.log(data);
   
   let numYears = 71;
   let is = [...Array(numYears).keys()];
@@ -44,6 +47,9 @@ function drawChart(picked, raw) {
       
   d3.select("#barchart").select("svg").remove();
 
+  /////////////////////////////
+  //   Setup Chart Elements 
+  /////////////////////////////
   let svg = d3.select("#barchart")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -60,6 +66,9 @@ function drawChart(picked, raw) {
   svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x).tickValues(xticks));
   svg.append("g").call(d3.axisLeft(y));
   
+  ///////////////////////////
+  //   Drawing the Chart 
+  ///////////////////////////  
   svg.append("g")
     .selectAll("rect")
     .data(data)
@@ -70,7 +79,10 @@ function drawChart(picked, raw) {
       .attr("height", function(d, i) { return height - y(d[1]); })
       .attr("width", x.bandwidth())
       .attr("fill", "red")
-  
+ 
+    ///////////////
+    //   Tooltip 
+    ///////////////
     var tooltip = d3.select("#barchart")
       .append("div")
       .style("opacity", 0)
@@ -90,6 +102,9 @@ function drawChart(picked, raw) {
           .style("top", (d3.event.pageY) + "px");
     });
   
+  ////////////////////
+  //   Axis Labels 
+  ////////////////////  
   svg.append("text")
     .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
     .style("text-anchor", "middle")

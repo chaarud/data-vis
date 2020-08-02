@@ -96,8 +96,8 @@ function drawChart(picked, raw) {
     .text("Year")
   
   svg.append("text")
+    .attr("transform", "translate(" + (-margin.right) + ", " + (height / 2) + ")")
     .attr("transform", "rotate(-90)")
-    .attr("transform", "translate(" + (margin.right) + ", " + (height / 2) + ")")
     .attr("font-size", "20px")
     .text("Spending")
 }

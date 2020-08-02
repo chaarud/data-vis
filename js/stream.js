@@ -83,7 +83,14 @@ let myChart = d3
         .text(({key}) => key);
 
     svg.append("g")
-        .call(xAxis);
+      .call(xAxis);
+    
+    svg.append("text")
+      .attr("y", height + 50)
+      .attr("x", width / 2)
+      .attr("font-size", "20px")
+      .attr("text-anchor", "middle")
+      .text("Year");
 
     let chart = svg.node();
 });

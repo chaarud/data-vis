@@ -35,11 +35,6 @@ let myChart = d3
       .domain([baseYear, 2019])
       .range([0, width]);
 
-    let xAxis = g => g
-//       .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x).tickSizeOuter(0).ticks(numYears).tickFormat(d3.format("d")))
-      .call(g => g.select(".domain").remove());
-
     let series = d3.stack()
       .keys(keys)
       .offset(d3.stackOffsetWiggle)
@@ -85,8 +80,9 @@ let myChart = d3
 
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-            
+      .call(d3.axisBottom(x).tickSizeOuter(0).ticks(numYears).tickFormat(d3.format("d")))
+      .call(g => g.select(".domain").remove());
+    
     var tooltip = d3.select("#streamgraph")
       .append("div")
       .attr("class", "tooltip");

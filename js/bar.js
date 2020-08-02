@@ -47,7 +47,6 @@ d3.csv(
     drawChart(picked, raw);
   });
   
-  return 42;
 });
 
 function drawChart(picked, raw) {

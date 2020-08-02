@@ -86,9 +86,7 @@ let myChart = d3
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
-    
-    svg.append("g").call(d3.axisLeft(y))
-        
+            
     var tooltip = d3.select("#streamgraph")
       .append("div")
       .attr("class", "tooltip");
@@ -119,6 +117,6 @@ let myChart = d3
       .attr("y", -margin.right)
       .attr("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Cumulative Relative Spending")
+      .text("Relative Spending")
 
 });

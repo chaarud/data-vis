@@ -106,7 +106,7 @@ d3.csv('data/spending.csv')
     //   Axis Labels 
     ////////////////////
     svg.append("text")
-      .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top) + ")")
+      .attr("transform", "translate(" + (width / 2) + ", " + (height + margin.top + 15) + ")")
       .style("text-anchor", "middle")
       .attr("font-size", "20px")
       .text("Population")

@@ -101,7 +101,7 @@ function drawChart(picked, raw) {
     
     svg.selectAll("rect")
       .on("mouseover", function() {
-        tooltip.transition().style("visibility", "visible").style("opacity", 0.9);
+        tooltip.transition().style("visibility", "visible");
       })
       .on("mouseout", function() {
         tooltip.transition().style("visibility", "hidden").style("opacity", 0);
